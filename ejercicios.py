@@ -119,3 +119,38 @@ def twoSum(nums, target):
             if nums[i] + nums[j] == target:
                 return [i, j]
     return []
+
+#region 12
+
+def checkRecord(s: str) -> bool:
+    a_count = 0
+    l_count = 0
+    for i in s:
+        if i == 'A':
+            a_count += 1
+            l_count = 0
+        elif i == 'L':
+            l_count += 1
+            if l_count > 2:
+                return False
+        else:
+            l_count = 0
+        if a_count > 1:
+            return False
+    return True
+
+# alt
+
+def checkRecord_alt(s):
+    if s.find("LLL") >= 0:
+        return False
+
+    if s.count("A") > 1:
+        return False
+
+    return True
+
+# alt2
+
+def checkRecord_alt2(s):
+    return "LLL" not in s and s.count("A") <= 1
