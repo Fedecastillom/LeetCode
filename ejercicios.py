@@ -1,5 +1,5 @@
 from functools import reduce
-#region 1
+# 1
 
 def unique_in_order(s):
     res = []
@@ -19,7 +19,7 @@ def unique_in_order(s):
 #print(unique_in_order([1, 2, 2, 3, 3]))
 #print(unique_in_order((1, 2, 2, 3, 3)))
 
-#region 2
+# 2
 
 def multiples(n):
     list = []
@@ -42,14 +42,14 @@ def sol2(n):
             list.append(k)
     return sum(list)
 
-#region 3
+# 3
 
 def maskify(cc):
     return "#" * (len(cc) - 4) + cc[-4:]
 
 #print(maskify('4556364607935616'))
 
-#region 4
+# 4
 
 def persistence(num):
     count = 0
@@ -60,14 +60,14 @@ def persistence(num):
 
 #print(persistence(39))
 
-#region 5
+# 5
 
 def number(bus_stops):
     return sum([x[0] - x[1] for x in bus_stops])
 
 #print(number([[10,0],[3,5],[5,8]]))
 
-#region 6
+# 6
 
 def find_even_index(arr):
     for i in range(len(arr)):
@@ -75,7 +75,7 @@ def find_even_index(arr):
             return i
     return -1
 
-#region 7
+# 7
 
 def find_short(s):
     res = len(s.split()[0])
@@ -89,11 +89,11 @@ def find_short(s):
 def find_shorts(s):
     return min(len(x) for x in s.split())
 
-#region 8
+# 8
 def array_diff(a,b):
     return [x for x in a if x not in b]
 
-#region 9
+# 9
 def stringMatching(words):
     result = []
     for word in words:
@@ -103,7 +103,7 @@ def stringMatching(words):
                 break
     return result
 
-#region 10
+# 10
 def oddnumber(num):
     i = len(num) - 1
     while i >= 0:
@@ -112,7 +112,7 @@ def oddnumber(num):
         i -= 1
     return ''
 
-#region 11
+# 11
 def twoSum(nums, target):
     for i in range(len(nums) - 1): # el -1 es para optimizar y que no itere una vez mas al pedo
         for j in range(i + 1, len(nums)):
@@ -120,7 +120,7 @@ def twoSum(nums, target):
                 return [i, j]
     return []
 
-#region 12
+# 12
 
 def checkRecord(s: str) -> bool:
     a_count = 0
@@ -154,3 +154,39 @@ def checkRecord_alt(s):
 
 def checkRecord_alt2(s):
     return "LLL" not in s and s.count("A") <= 1
+
+# 13
+
+def isPalindrome(x: int) -> bool:
+    return str(x) == str(x)[::-1]
+
+# 14
+
+def romanToInt(s: str) -> int:
+    d = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000
+    }
+    
+    ans = 0
+    for i in range(len(s)):
+        if i < len(s) - 1 and d[s[i]] < d[s[i+1]]:
+            ans -= d[s[i]]
+        else:
+            ans += d[s[i]]
+    
+    return ans
+
+# 15
+
+def mergeTwoLists(list1, list2):
+    for k in list2:
+        list1.append(k)
+    list1.sort()
+    return list1
+
