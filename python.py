@@ -243,3 +243,39 @@ def plusOne(digits):
     num += 1
     ans = [int(x) for x in str(num)]
     return ans
+
+# 19 Se puede hacer con un diccionario pero esta es mas simple.
+
+def singleNumber(nums):
+    ans = 0
+    for x in nums:
+        ans ^= x
+    return ans
+
+# 20
+
+def singleNumber2(nums):
+    d = {}
+    for x in nums:
+        if x in d:
+            d[x] += 1
+        else:
+            d[x] = 1
+    for x, y in d.items():
+        if y == 1:
+            return x
+
+# 21
+
+def singleNumber3(nums):
+    d = {}
+    ans = []
+    for x in nums:
+        if x in d:
+            d[x] += 1
+        else:
+            d[x] = 1
+    for x, y in d.items():
+        if y == 1:
+            ans.append(x)
+    return ans
